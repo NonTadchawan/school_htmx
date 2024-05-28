@@ -7,28 +7,30 @@
             crossorigin="anonymous"></script>
         {#bundle /}
 </head>
-<body>
-<nav class="navbar navbar-expand-sm bg-info-subtle">
-    <div class="container">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link " href="{uri:HomeController.home}">หน้าหลัก</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{uri:StudentController.student}">ข้อมูลนักเรียน</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{uri:TeacherController.teacher}">ข้อมูลครู</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{uri:HomeController.about}">เกี่ยวกับโรงเรียน</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{uri:HomeController.contact}">ติดต่อเรา</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-{#insert} {/insert}
+<body hx-headers='{"{inject:csrf.headerName}":"{inject:csrf.token}"}'>
+<div class="container">
+    <nav class="navbar navbar-expand-sm">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link " href="{uri:HomeController.home}">หน้าหลัก</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{uri:StudentController.student}">ข้อมูลนักเรียน</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{uri:TeacherController.teacher}">ข้อมูลครู</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{uri:HomeController.about}">เกี่ยวกับโรงเรียน</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{uri:HomeController.contact}">ติดต่อเรา</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {#insert} {/insert}
+</div>
 </body>
 </html>
