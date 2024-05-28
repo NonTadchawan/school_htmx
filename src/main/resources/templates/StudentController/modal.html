@@ -1,19 +1,27 @@
 <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">เพิ่มนักเรียน</h5>
+            <h5 class="modal-title">เพิ่มข้อมูลนักเรียน</h5>
         </div>
-        <form hx-post="/student">
+        <form hx-post="/student" method="post">
             <div class="modal-body">
-                <label for="name">ชื่อนักศึกษา</label>
-                <input type="text" id="name" name="name" class="form-control">
+                <label for="fName">ชื่อ</label>
+                <input type="text" id="fName" name="fName" class="form-control">
+                <label for="lName">นามสกุล</label>
+                <input type="text" id="lName" name="lName" class="form-control">
+                <label for="age">อายุ</label>
+                <input type="number" id="age" name="age" class="form-control">
+                <label for="degree">ชั้นมัธยมศึกษาปีที่</label>
+                <input type="text" id="degree" name="degree" class="form-control">
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit"
+                        class="btn btn-success">บันทึก
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
             </div>
         </form>
-
-        <div class="modal-footer">
-            <button type="submit"
-                    class="btn btn-success">บันทึก</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
-        </div>
     </div>
+
 </div>
