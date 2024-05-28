@@ -1,21 +1,23 @@
 package org.acme.controller;
 
-import io.quarkus.qute.Template;
+import io.quarkiverse.renarde.htmx.HxController;
+import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import org.acme.repository.TeacherRepo;
 
 @Path("/teacher")
-public class TeacherController {
+public class TeacherController extends HxController {
     @Inject
     TeacherRepo teacherRepo;
-    @Inject
-    Template teacher;
+    @CheckedTemplate
+    public static class Templates {
+        public static native TemplateInstance teacher();
+    }
 
-    @GET
+    @Path("/")
     public TemplateInstance teacher(){
-        return teacher.instance();
+        return Templates.teacher();
     }
 }

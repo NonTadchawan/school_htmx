@@ -13,11 +13,21 @@ public class HomeController extends HxController {
     @CheckedTemplate
     public static class Templates {
         public static native TemplateInstance home();
+        public static native TemplateInstance about();
+        public static native TemplateInstance contact();
     }
 
-    @GET
-    @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance get() {
+    @Path("/")
+    public TemplateInstance home() {
         return Templates.home();
+    }
+
+
+    public TemplateInstance about() {
+        return Templates.about();
+    }
+
+    public TemplateInstance contact() {
+        return Templates.contact();
     }
 }

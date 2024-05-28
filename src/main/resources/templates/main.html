@@ -7,25 +7,27 @@
         {#bundle /}
 </head>
 <body>
-<div class="container">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link " href="{uri:HomeController.home}">หน้าหลัก</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " href="{uri:StudentController.student}">ข้อมูลนักเรียน</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">ข้อมูลครู</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">เกี่ยวกับโรงเรียน</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">ติดต่อเรา</a>
-        </li>
-    </ul>
-</div>
+<nav class="navbar navbar-expand-sm bg-info-subtle">
+    <div class="container">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link " href="{uri:HomeController.home}">หน้าหลัก</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{uri:StudentController.student}">ข้อมูลนักเรียน</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{uri:TeacherController.teacher}">ข้อมูลครู</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{uri:HomeController.about}">เกี่ยวกับโรงเรียน</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{uri:HomeController.contact}">ติดต่อเรา</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 {#insert} {/insert}
 </body>
 </html>
