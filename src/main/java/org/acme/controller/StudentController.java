@@ -22,14 +22,15 @@ public class StudentController extends HxController {
     @CheckedTemplate
     public static class Templates {
         public static native TemplateInstance student(List<Student> students);
+
         public static native TemplateInstance student$list(List<Student> students);
-        public static native TemplateInstance modal();
+        public static native TemplateInstance modal(Student student, String mode);
     }
 
     @Path("/")
     @Blocking
     public TemplateInstance student() {
-        if(isHxRequest()){
+        if (isHxRequest()) {
             return Templates.student$list(studentRepo.listAll());
         }
         return Templates.student(studentRepo.listAll());
@@ -38,7 +39,21 @@ public class StudentController extends HxController {
     @GET
     @Path("/modal")
     public TemplateInstance modal() {
-        return Templates.modal();
+        return Templates.modal(null,"create");
+    }
+
+    @GET
+    @Path("view/{id}")
+    @Blocking
+    public TemplateInstance view(Long id) {
+        return Templates.modal(studentRepo.findById(id),"view");
+    }
+
+    @GET
+    @Path("update/{id}")
+    @Blocking
+    public TemplateInstance update(Long id) {
+        return Templates.modal(studentRepo.findById(id),"update");
     }
 
     @POST

@@ -1,5 +1,6 @@
 <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
+        {#if mode =='create'}
         <div class="modal-header">
             <h5 class="modal-title">เพิ่มข้อมูลนักเรียน</h5>
         </div>
@@ -17,10 +18,56 @@
             <div class="modal-footer">
                 <button type="submit"
                         class="btn btn-success"
-                        data-bs-dismiss="modal">บันทึก</button>
+                        data-bs-dismiss="modal">บันทึก
+                </button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
             </div>
         </form>
+        {/if}
+        {#if mode == 'update'}
+        <div class="modal-header">
+            <h5 class="modal-title">แก้ไขข้อมูลนักเรียน</h5>
+        </div>
+        <form hx-post="/student">
+            <div class="modal-body">
+                <label for="fName">ชื่อ</label>
+                <input type="text" id="fName" name="fName" class="form-control" value="{student.fName}">
+                <label for="lName">นามสกุล</label>
+                <input type="text" id="lName" name="lName" class="form-control" value="{student.lName}">
+                <label for="age">อายุ</label>
+                <input type="number" id="age" name="age" class="form-control" value="{student.age}">
+                <label for="degree">ชั้นมัธยมศึกษาปีที่</label>
+                <input type="text" id="degree" name="degree" class="form-control" value="{student.degree}">
+            </div>
+            <div class="modal-footer">
+                <button type="submit"
+                        class="btn btn-success"
+                        data-bs-dismiss="modal">บันทึก
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+            </div>
+        </form>
+        {/if}
+        {#if mode == 'view'}
+            <div class="modal-header">
+                <h5 class="modal-title">ข้อมูลนักเรียน</h5>
+            </div>
+            <form disabled="true">
+                <div class="modal-body">
+                    <label for="fName">ชื่อ</label>
+                    <input type="text" id="fName" name="fName" class="form-control" value="{student.fName}">
+                    <label for="lName">นามสกุล</label>
+                    <input type="text" id="lName" name="lName" class="form-control" value="{student.lName}">
+                    <label for="age">อายุ</label>
+                    <input type="number" id="age" name="age" class="form-control" value="{student.age}">
+                    <label for="degree">ชั้นมัธยมศึกษาปีที่</label>
+                    <input type="text" id="degree" name="degree" class="form-control" value="{student.degree}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                </div>
+            </form>
+        {/if}
     </div>
 
 </div>

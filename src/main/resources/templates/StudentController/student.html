@@ -23,20 +23,39 @@
         </div>
         <div class="container">
             {#fragment id = "list"}
-            <table class="table table-borderless">
-                <thead>
+            <table class="table">
+                <thead class="text-center">
                 <tr>
+                    <th>รหัสนักเรียน</th>
                     <th>ชื่อ - นามสกุล</th>
                     <th>อายุ</th>
                     <th>ระดับชั้น</th>
+                    <th>จัดการ</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                 {#for s in students}
                 <tr>
-                    <td>{s.fName} {s.lName}</td>
+                    <td>{s.id}</td>
+                    <td>{s.fName}  {s.lName}</td>
                     <td>{s.age}</td>
                     <td>มัธยมศึกษาปีที่ {s.degree}</td>
+                    <td>
+                        <i class="bi bi-eye me-2"
+                           hx-get="/student/view/{s.id}"
+                           hx-target="#modals-here"
+                           hx-trigger="click"
+                           data-bs-toggle="modal"
+                           data-bs-target="#modals-here"
+                        ></i>
+                        <i class="bi bi-pencil me-2"
+                           hx-get="/student/update/{s.id}"
+                           hx-target="#modals-here"
+                           hx-trigger="click"
+                           data-bs-toggle="modal"
+                           data-bs-target="#modals-here"></i>
+                        <i class="bi bi-trash3"></i>
+                    </td>
                 </tr>
                 {/for}
                 </tbody>
