@@ -1,25 +1,48 @@
 {#include main.html}
 <div class="container-xxl my-md-4 bd-layout">
- <div class="justify-content-center">
-  <h3 class="fw-bold text-center">ข้อมูลนักเรียน</h3>
-  <div class="float-end">
-   <button
-    hx-get="/student/modal"
-    hx-target="#modals-here"
-    hx-trigger="click"
-    data-bs-toggle="modal"
-    data-bs-target="#modals-here"
-    class="btn btn-primary">เพิ่มนักเรียน</button>
-</div>
-<div id="modals-here"
-    class="modal modal-blur fade"
-    style="display: none"
-    aria-hidden="false"
-    tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content"></div>
+    <div class="justify-content-center">
+        <h3 class="fw-bold text-center">ข้อมูลนักเรียน</h3>
+        <div class="float-end">
+            <button
+                    hx-get="/student/modal"
+                    hx-target="#modals-here"
+                    hx-trigger="click"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modals-here"
+                    class="btn btn-primary">เพิ่มนักเรียน
+            </button>
+        </div>
+        <div id="modals-here"
+             class="modal modal-blur fade"
+             style="display: none"
+             aria-hidden="false"
+             tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content"></div>
+            </div>
+        </div>
+        <div class="container">
+            {#fragment id = "list"}
+            <table class="table table-borderless">
+                <thead>
+                <tr>
+                    <th>ชื่อ - นามสกุล</th>
+                    <th>อายุ</th>
+                    <th>ระดับชั้น</th>
+                </tr>
+                </thead>
+                <tbody>
+                {#for s in students}
+                <tr>
+                    <td>{s.fName} {s.lName}</td>
+                    <td>{s.age}</td>
+                    <td>มัธยมศึกษาปีที่ {s.degree}</td>
+                </tr>
+                {/for}
+                </tbody>
+            </table>
+            {/fragment}
+        </div>
     </div>
-</div>
-</div>
 </div>
 

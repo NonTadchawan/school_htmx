@@ -5,7 +5,7 @@
         </div>
         <form hx-post="/student">
             <div class="modal-body">
-                <label>ชื่อนักศึกษา</label>
+                <label for="fName">ชื่อ</label>
                 <input type="text" id="fName" name="fName" class="form-control">
                 <label for="lName">นามสกุล</label>
                 <input type="text" id="lName" name="lName" class="form-control">
@@ -16,7 +16,8 @@
             </div>
             <div class="modal-footer">
                 <button type="submit"
-                        class="btn btn-success">บันทึก</button>
+                        class="btn btn-success"
+                        data-bs-dismiss="modal">บันทึก</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
             </div>
         </form>
