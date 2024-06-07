@@ -54,7 +54,10 @@
                            hx-trigger="click"
                            data-bs-toggle="modal"
                            data-bs-target="#modals-here"></i>
-                        <i class="bi bi-trash3"></i>
+                        <i class="bi bi-trash3"
+                           hx-delete="/student/{s.id}"
+                           hx-trigger="click"
+                        ></i>
                     </td>
                 </tr>
                 {/for}
