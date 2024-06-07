@@ -77,14 +77,16 @@ public class StudentController extends HxController {
     @POST
     @Path("/")
     @Transactional
-    public void saveStudent(@BeanParam StudentDto student) {
+    public TemplateInstance saveStudent(@BeanParam StudentDto student) {
         studentRepo.persist(mapper.toEntity(student));
+        return Templates.student$list(studentRepo.listAll());
     }
 
     @DELETE
     @Path("/{id}")
-    public void deleteStudent(Long id) {
+    public TemplateInstance deleteStudent(Long id) {
         studentRepo.deleteById(id);
+        return Templates.student$list(studentRepo.listAll());
     }
 
 }

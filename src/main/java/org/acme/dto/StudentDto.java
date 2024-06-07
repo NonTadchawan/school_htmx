@@ -9,7 +9,6 @@ import java.io.Serializable;
  * DTO for {@link Student}
  */
 public class StudentDto implements Serializable {
-    @RestForm
     private Long id;
     @RestForm("fName")
     private String fName;
