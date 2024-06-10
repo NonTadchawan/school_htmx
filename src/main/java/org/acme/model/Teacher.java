@@ -1,13 +1,12 @@
 package org.acme.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Teacher {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Teacher_seq")
+    @SequenceGenerator(name = "Teacher_seq", sequenceName = "teacher_seq", allocationSize = 1)
     private Long id;
     private String fName;
     private String lName;
