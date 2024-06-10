@@ -10,10 +10,10 @@ import java.io.Serializable;
  */
 public class StudentDto implements Serializable {
     private Long id;
-    @RestForm("fName")
-    private String fName;
-    @RestForm("lName")
-    private String lName;
+    @RestForm
+    private String firstName;
+    @RestForm
+    private String lastName;
     @RestForm
     private Integer age;
     @RestForm
@@ -27,20 +27,20 @@ public class StudentDto implements Serializable {
         this.id = id;
     }
 
-    public String getFName() {
-        return fName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setFName(String fName) {
-        this.fName = fName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getLName() {
-        return lName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setLName(String lName) {
-        this.lName = lName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public Integer getAge() {
