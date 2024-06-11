@@ -21,8 +21,8 @@
                 <div class="modal-content"></div>
             </div>
         </div>
+        {#fragment id = "list"}
         <div class="container">
-            {#fragment id = "list"}
             <table class="table">
                 <thead class="text-center">
                 <tr>
@@ -54,18 +54,19 @@
                            hx-trigger="click"
                            data-bs-toggle="modal"
                            data-bs-target="#modals-here"></i>
-                        <i class="bi bi-trash3"
+                        <a type="button"
                            hx-delete="/student/{s.id}"
-                           hx-trigger="click"
                            hx-target="#list"
-                        ></i>
+                           hx-swap="outerHTML">
+                            <i class="bi bi-trash3"></i>
+                        </a>
                     </td>
                 </tr>
                 {/for}
                 </tbody>
             </table>
-            {/fragment}
         </div>
+        {/fragment}
     </div>
 </div>
 
